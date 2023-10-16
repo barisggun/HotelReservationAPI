@@ -17,6 +17,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IStaffDal,EfStaffDal>(); //Hafýzada 1 kez nesne örneði oluþtur ve bunu kullan.
 builder.Services.AddScoped<IStaffService,StaffManager>();
+
+
+builder.Services.AddScoped<IServiceDal, EfServiceDal>(); 
+builder.Services.AddScoped<IServiceService, ServiceManager>();
+
+builder.Services.AddScoped<ISubscribeDal, EfSubscribeDal>();
+builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
+
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+
+builder.Services.AddScoped<IRoomDal, EfRoomDal>();
+builder.Services.AddScoped<IRoomService, RoomManager>();
 //end
 
 
