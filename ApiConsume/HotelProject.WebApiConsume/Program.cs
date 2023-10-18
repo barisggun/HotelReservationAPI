@@ -32,6 +32,13 @@ builder.Services.AddScoped<IRoomDal, EfRoomDal>();
 builder.Services.AddScoped<IRoomService, RoomManager>();
 //end
 
+builder.Services.AddCors(opt=>
+{
+    opt.AddPolicy("OtelApiCors", opts =>
+    {
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+}); //Api'ýn baþka kaynaklar tarafýndan consume edilmesini saðlar.
 
 
 var app = builder.Build();
@@ -42,6 +49,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("OtelApiCors"); //Buraya da consume edilebilmesi için policy'i ekliyoruz.
 
 app.UseAuthorization();
 
