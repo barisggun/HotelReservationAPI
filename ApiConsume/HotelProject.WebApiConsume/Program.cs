@@ -40,6 +40,8 @@ builder.Services.AddCors(opt=>
     });
 }); //Api'ýn baþka kaynaklar tarafýndan consume edilmesini saðlar.
 
+builder.Services.AddAutoMapper(typeof(Program)); //Automapper
+
 
 var app = builder.Build();
 
