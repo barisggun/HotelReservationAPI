@@ -5,6 +5,7 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 //my codes start 
 builder.Services.AddHttpClient();
+builder.Services.AddAutoMapper(typeof(Program));
 //my codes end
 
 var app = builder.Build();
