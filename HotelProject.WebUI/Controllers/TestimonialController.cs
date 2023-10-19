@@ -1,23 +1,17 @@
 ﻿using HotelProject.WebUI.Models.Staff;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class StaffController : Controller
+    public class TestimonialController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-
-        public StaffController(IHttpClientFactory httpClientFactory)
-        {
-            _httpClientFactory = httpClientFactory;
-        }
-
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("http://localhost:5242/api/Staff");
-            if(responseMessage.IsSuccessStatusCode)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<StaffViewModel>>(jsonData);
@@ -33,13 +27,13 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task <IActionResult> AddStaff(AddStaffViewModel model)
+        public async Task<IActionResult> AddStaff(AddStaffViewModel model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
-            StringContent stringContent = new StringContent(jsonData, System.Text.Encoding.UTF8,"application/json");
-            var responseMessage = await client.PostAsync("http://localhost:5242/api/Staff",stringContent); 
-            if(responseMessage.IsSuccessStatusCode)
+            StringContent stringContent = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("http://localhost:5242/api/Staff", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
@@ -76,8 +70,8 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
-            StringContent stringContent = new StringContent(jsonData, System.Text.Encoding.UTF8,"application/json");
-            var responseMessage = await client.PutAsync("http://localhost:5242/api/Staff/",stringContent);
+            StringContent stringContent = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:5242/api/Staff/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
