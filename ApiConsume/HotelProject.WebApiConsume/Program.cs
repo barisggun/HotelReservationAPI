@@ -30,6 +30,9 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
 builder.Services.AddScoped<IRoomDal, EfRoomDal>();
 builder.Services.AddScoped<IRoomService, RoomManager>();
+
+builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
 //end
 
 builder.Services.AddCors(opt=>
