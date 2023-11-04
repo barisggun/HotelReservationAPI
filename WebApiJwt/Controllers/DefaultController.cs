@@ -15,11 +15,25 @@ namespace WebApiJwt.Controllers
             return Ok(new CreateToken().TokenCreate());
         }
 
+        [HttpGet("[action]")]
+        public IActionResult CreateAdminToken()
+        {
+            return Ok(new CreateToken().TokenCreateAdmin());
+        }
+
+
         [Authorize]
         [HttpGet("[action]")]
         public IActionResult Test2()
         {
             return Ok("Hoşgeldiniz");
+        }
+
+        [Authorize(Roles ="Admin,Visitor")]
+        [HttpGet("[action]")]
+        public IActionResult Test3()
+        {
+            return Ok("Hoşgeldiniz admin or visitor");
         }
 
     }
