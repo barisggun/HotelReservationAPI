@@ -36,6 +36,9 @@ builder.Services.AddScoped<IAboutService, AboutManager>();
 
 builder.Services.AddScoped<IBookingDal, EfBookingDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
+
+builder.Services.AddScoped<IGuestDal, EfGuestDal>();
+builder.Services.AddScoped<IGuestService, GuestManager>();
 //end
 
 builder.Services.AddCors(opt=>
