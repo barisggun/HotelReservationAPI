@@ -1,15 +1,14 @@
 ﻿using HotelProject.WebUI.Dtos.RoomDto;
-using HotelProject.WebUI.Models.Staff;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class RoomController : Controller
+    public class AdminRoomController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public RoomController(IHttpClientFactory httpClientFactory)
+        public AdminRoomController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }

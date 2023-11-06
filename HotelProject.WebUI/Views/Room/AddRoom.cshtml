@@ -1,0 +1,43 @@
+﻿@model CreateRoomDto
+
+@{
+    ViewData["Title"] = "Add room";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Yeni oda ekle</h1>
+<form method="post">
+    <label>Oda numarası</label>
+    <input type="text" asp-for=RoomNumber class="form-control" />
+    <br />
+
+    <label>Başlık</label>
+    <input type="text" asp-for=Title class="form-control" />
+    <br />
+
+    <label>Fiyat</label>
+    <input type="text" asp-for=Price class="form-control" />
+    <br />
+
+    <label>Yatak sayısı</label>
+    <input type="text" asp-for=BedCount class="form-control" />
+    <br />
+
+    <label>Banyo sayısı</label>
+    <input type="text" asp-for=BathCount class="form-control" />
+    <br />
+
+    <label>Görsel</label>
+    <input type="text" asp-for=RoomCoverImage class="form-control" />
+    <br />
+
+    <label>Açıklama</label>
+    <input type="text" asp-for=Description class="form-control" />
+    <br />
+
+    <label>Wifi</label>
+    <input type="text" asp-for=Wifi class="form-control" />
+    <br />
+
+    <button class="btn mb-1 btn-rounded btn-outline-info">Personeli ekle</button>
+</form>
