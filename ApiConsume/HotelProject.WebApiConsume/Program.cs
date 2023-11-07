@@ -18,7 +18,6 @@ builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IStaffDal,EfStaffDal>(); //Hafýzada 1 kez nesne örneði oluþtur ve bunu kullan.
 builder.Services.AddScoped<IStaffService,StaffManager>();
 
-
 builder.Services.AddScoped<IServiceDal, EfServiceDal>(); 
 builder.Services.AddScoped<IServiceService, ServiceManager>();
 
@@ -42,6 +41,9 @@ builder.Services.AddScoped<IGuestService, GuestManager>();
 
 builder.Services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
 builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
 //end
 
 builder.Services.AddCors(opt=>
