@@ -1,0 +1,26 @@
+﻿@model CreateGuestDto
+
+@{
+    ViewData["Title"] = "Add room";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Yeni oda ekle</h1>
+<form method="post">
+    <label>misafir adı</label>
+    <input type="text" asp-for=Name class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <br />
+
+    <label>misafir soyadı</label>
+    <input type="text" asp-for=Surname class="form-control" />
+    <span class="text-danger" asp-validation-for="Surname"></span>
+    <br />
+
+    <label>misafir şehri</label>
+    <input type="text" asp-for="City" class="form-control" />
+    <span class="text-danger" asp-validation-for="City"></span>
+    <br />
+
+    <button class="btn mb-1 btn-rounded btn-outline-info">misafiri ekle</button>
+</form>
