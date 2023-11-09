@@ -1,0 +1,12 @@
+﻿@model List<ResultAppUserListDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+  
+}
+
+@foreach(var item in Model)
+{
+    <p>@item.Name @item.Surname Kurum: @item.WorkLocationName</p>
+}
